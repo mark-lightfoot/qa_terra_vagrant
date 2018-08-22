@@ -1,0 +1,15 @@
+#!/bin/bash
+# requres python 2.7 to be installed!
+printf "checking python install...\n"
+if python -V
+then
+	printf "python install OK, continuing\n"
+else
+	printf "python 2.7 must be installed for google cloud sdk\n"
+	exit 1
+fi
+download="https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-213.0.0-linux-x86_64.tar.gz"
+local="/tmp/google-cloud-sdk.tar.gz"
+wget "${download}" -O "${local}"
+sudo tar xzvf $local -C /opt
+sudo ln -s /opt/google-cloud-sdk/bin/gcloud /usr/bin/gcloud

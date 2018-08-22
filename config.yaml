@@ -1,0 +1,13 @@
+---
+- name: jenkins
+  box: centos/7
+  cpus: 1
+  memory: 4096
+  private_ip: 10.0.10.10
+  package_manager: yum
+  packages:
+  - git
+  - vim
+  scripts:
+  - install_server
+...
